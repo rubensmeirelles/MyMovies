@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swa');
+@import "~bootstrap/dist/css/bootstrap.css";
+
 *{
   margin: 0;
   padding: 0;
@@ -6,4 +8,8 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swa')
+body{
+  background-color: rgb(7, 2, 2);
+}
+
+

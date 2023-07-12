@@ -1,17 +1,23 @@
 .header{
   padding: 20px;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(18,18,20,1) 82%);
+  background: rgb(7, 2, 2);
   font-size: 3em;
+  border-bottom: 1px solid #54545C;
 }
 
 .title{
-  color: rgb(250, 25, 62);
+  background: #54545C;
+  background: radial-gradient(ellipse farthest-corner at right center, #2beed4 51%, #084044 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
-  margin-right: 8px;
 }
 
 .subtitle{
-  color:rgb(240, 207, 184);
+  background: #4949b8;
+  background: radial-gradient(ellipse farthest-corner at right center, #20ffe1 51%, #181717 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
 

@@ -1,5 +1,15 @@
-<p *ngFor="let movie of movies.results">
-  Título: {{ movie.title }}
-  Imagem: <img src="{{imageUrl}}{{ movie.poster_path }}" alt="">
-</p>
+<div class="container">
+  <div class="d-flex flex-wrap">
+    <div class="card" style="width: 18rem;" *ngFor="let movie of movies.results">
+      <img src="{{imageUrl}}{{ movie.poster_path }}" alt="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{ movie.title }}</h5>
+        <div class="action">
+          <a href="#" class="btn btn-primary">Detalhes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
