@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -11,15 +12,15 @@ export class MoviesComponent implements OnInit {
 
   movies: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
-  
+
 
   constructor( private moviesService: MoviesService) { }
 
   ngOnInit() {
-    this.getAllMovies();
+    this.getTopRated();
   }
 
-  getAllMovies(){
+  getTopRated(){
     this.moviesService.getMovies().subscribe((response => {
       this.movies = response;
       console.log("Filmes: ",this.movies.results)

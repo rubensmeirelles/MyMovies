@@ -5,6 +5,10 @@
   border-bottom: 1px solid #54545C;
 }
 
+.header img{
+  margin-right: 10px;
+}
+
 .title{
   background: #54545C;
   background: radial-gradient(ellipse farthest-corner at right center, #2beed4 51%, #084044 100%);

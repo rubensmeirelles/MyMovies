@@ -8,6 +8,14 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
 body{
   background-color: rgb(7, 2, 2);
 }
