@@ -49,35 +49,36 @@ li {
   float: left;
   padding: 1rem;
   position: relative;
-  text-decoration: none;
-  transition-duration: 0.5s;
+  transition: 1s;
 }
 
-li a {
-  color: #333;
+span {
   font-size: 2em;
 }
 
+.dropdown li a{
+  color: #000
+}
+
+.dropdown li:hover{
+  background: #bdb4b4;
+}
+
 li:hover {
-  background: #2beed4;
-  border-radius: 30px;
   cursor: pointer;
 }
 
 ul li ul {
-  background: #e9e9e9;
-
+  min-width: 270px;
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  transition: all 0.5s ease;
-  margin-top: 1rem;
-  left: 0;
   display: none;
 }
 
 ul li:hover > ul,
 ul li ul:hover {
+  background: #e9e9e9;
   visibility: visible;
   opacity: 1;
   display: block;
