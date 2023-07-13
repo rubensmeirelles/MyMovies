@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class MovieCardComponent {
   @Input() movies: any;
   @Input() vote: any;
-  @Input() imageUrl: string | undefined;
+  @Input() imageUrl: string = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
+
 }

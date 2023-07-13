@@ -9,7 +9,7 @@
   margin-right: 10px;
 }
 
-.title{
+.titleHeader{
   background: #54545C;
   background: radial-gradient(ellipse farthest-corner at right center, #2beed4 51%, #084044 100%);
   -webkit-background-clip: text;

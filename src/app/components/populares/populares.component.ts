@@ -9,6 +9,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class PopularesComponent implements OnInit {
 
   movies: any = [];
+  votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
 
 
@@ -21,7 +22,6 @@ export class PopularesComponent implements OnInit {
   getPopulares(){
     this.moviesService.getPopulares().subscribe((response => {
       this.movies = response;
-      console.log("Filmes: ",this.movies.results)
     }))
   }
 

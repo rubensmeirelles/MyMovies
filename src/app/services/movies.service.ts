@@ -18,4 +18,8 @@ export class MoviesService {
   getPopulares(){
     return this.api.get<any>(`${environment.urlApi}/popular${this.apiKey}`)
   }
+
+  getUpComing(){
+    return this.api.get<any>(`${environment.urlApi}/upcoming${this.apiKey}`)
+  }
 }

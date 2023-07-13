@@ -20,4 +20,12 @@ body{
   background-color: rgb(7, 2, 2);
 }
 
+.title{
+  font-size: 3em;
+  color: #f9f9f9;
+  font-weight: 800;
+  padding-bottom: 20px;
+}
+
+
 
