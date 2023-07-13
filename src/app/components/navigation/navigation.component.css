@@ -1,0 +1,62 @@
+.space{
+  padding: 10px 50px;
+  margin: 0 10px;
+}
+
+.space a{
+  background: transparent;
+}
+
+ul {
+  background: transparent;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  color: #fff;
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  transition: 1s;
+}
+
+span {
+  font-size: 2em;
+}
+
+.dropdown li a{
+  color: #000
+}
+
+.dropdown li:hover{
+  background: #bdb4b4;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+ul li ul {
+  min-width: 270px;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  background: #e9e9e9;
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: 999;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}

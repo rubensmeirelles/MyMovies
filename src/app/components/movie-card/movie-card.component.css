@@ -1,0 +1,30 @@
+.card{
+  margin: 15px;
+  background-color: black;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.card-title{
+  padding: 5px 0;
+  font-size: 1em;
+  color: #f9f9f9;
+}
+
+.card:hover{
+  transform: scale(1.1);
+}
+
+span{
+  background-color: #2beed4;
+  font-size: 1.1em;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.votes{
+  position: absolute;
+  margin-top: -75px;
+}
+

@@ -9,7 +9,13 @@ export class MoviesService {
 
   constructor(private api: HttpClient){}
 
-  getMovies(){
-    return this.api.get<any>(environment.urlApi)
+  apiKey = '?api_key=6888da0641053ade917886ca8a7fdd72'
+
+  getTopRated(){
+    return this.api.get<any>(`${environment.urlApi}/top_rated${this.apiKey}`)
+  }
+
+  getPopulares(){
+    return this.api.get<any>(`${environment.urlApi}/popular${this.apiKey}`)
   }
 }

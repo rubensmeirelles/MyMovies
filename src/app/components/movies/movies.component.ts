@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from './movies.service';
+import { MoviesService } from '../../services/movies.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class MoviesComponent implements OnInit {
   }
 
   getTopRated(){
-    this.moviesService.getMovies().subscribe((response => {
+    this.moviesService.getTopRated().subscribe((response => {
       this.movies = response;
       console.log("Filmes: ",this.movies.results)
     }))

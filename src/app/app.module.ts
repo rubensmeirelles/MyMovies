@@ -6,12 +6,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MoviesComponent } from './components/movies/movies.component';
+import { PopularesComponent } from './components/populares/populares.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MoviesComponent
+    MoviesComponent,
+    PopularesComponent,
+    NavigationComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
