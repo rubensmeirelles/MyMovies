@@ -10,6 +10,7 @@ import { PopularesComponent } from './components/populares/populares.component';
 import { NavigationComponent } from './components/shared/navigation/navigation.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UpcomingComponent } from './components/upcoming/upcoming.component';
     PopularesComponent,
     NavigationComponent,
     MovieCardComponent,
-    UpcomingComponent
+    UpcomingComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

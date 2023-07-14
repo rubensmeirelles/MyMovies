@@ -22,4 +22,9 @@ export class MoviesService {
   getUpComing(){
     return this.api.get<any>(`${environment.urlApi}/upcoming${this.apiKey}`)
   }
+
+  getMovieById(movieId: string) {
+    return this.api.get<any>(`${environment.urlApi}/movie/${movieId}${this.apiKey}`);
+  }
+  
 }

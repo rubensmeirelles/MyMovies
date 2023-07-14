@@ -1,15 +1,24 @@
-<div class="d-flex flex-wrap">
-  <div class="card" style="width: 18rem;" *ngFor="let movie of movies.results">
-    <img [src]="imageUrl + movie.poster_path" alt="" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title text-center">{{ movie.title }}</h5>
-      <div class="votes">
-        <span>{{ movie.vote_average }}</span>
-      </div>
-      <div class="action d-grid">
-        <button class="btn btn-outline-secondary" type="button">Detalhes</button>
+<div>
+  <a [routerLink]="['movie',  movies.id ]">
+    <div class="d-flex flex-wrap">
+      <div class="card" style="width: 18rem;" *ngFor="let movie of movies.results">
+        <img [src]="imageUrl + movie.poster_path" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ movie.title }}</h5>
+          <h5 class="card-title text-center">{{ movie.id }}</h5>
+          <div class="votes">
+            <span>{{ movie.vote_average }}</span>
+          </div>
+          <div class="action d-grid">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+            >Detalhes
+          </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 
