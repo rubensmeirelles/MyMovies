@@ -1,0 +1,12 @@
+.hero{
+  padding: 50px 0
+}
+
+.capa{
+  min-width: 300px;
+  height: 550px;
+}
+
+.capa img{
+  object-fit: cover;
+}

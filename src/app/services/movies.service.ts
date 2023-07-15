@@ -24,7 +24,7 @@ export class MoviesService {
   }
 
   getMovieById(movieId: string) {
-    return this.api.get<any>(`${environment.urlApi}/movie/${movieId}${this.apiKey}`);
+    return this.api.get<any>(`${environment.urlApi}/${movieId}${this.apiKey}`);
   }
-  
+
 }

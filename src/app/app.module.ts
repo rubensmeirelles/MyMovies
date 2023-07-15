@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,12 @@ import { NavigationComponent } from './components/shared/navigation/navigation.c
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
+
 
 @NgModule({
   declarations: [
@@ -31,7 +37,9 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

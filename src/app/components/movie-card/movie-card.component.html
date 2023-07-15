@@ -1,11 +1,10 @@
 <div>
-  <a [routerLink]="['movie',  movies.id ]">
-    <div class="d-flex flex-wrap">
-      <div class="card" style="width: 18rem;" *ngFor="let movie of movies.results">
-        <img [src]="imageUrl + movie.poster_path" alt="" class="card-img-top">
+  <div class="d-flex flex-wrap">
+    <div class="card" style="width: 18rem;" *ngFor="let movie of movies.results">
+      <a [routerLink]="['/movie',  movie.id ]">
+        <img [src]="imageUrl + movie.poster_path" alt="{{ movie.title }}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title text-center">{{ movie.title }}</h5>
-          <h5 class="card-title text-center">{{ movie.id }}</h5>
           <div class="votes">
             <span>{{ movie.vote_average }}</span>
           </div>
@@ -17,8 +16,8 @@
           </button>
           </div>
         </div>
-      </div>
+      </a>
     </div>
-  </a>
+  </div>
 </div>
 

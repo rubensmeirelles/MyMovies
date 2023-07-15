@@ -10,20 +10,16 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MovieDetailsComponent implements OnInit {
 
   public id: any;
-  movies: any = [];
+  movie: any = [];
+  genres: any = [] = [];
+  vote_average: any;
+  spoken_languages: any = [] = [];
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
 
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute){
-    
-  }
 
-  // getMovieById(id: any){
-  //   this.moviesService.getMovieById(this.id).subscribe((response => {
-  //     this.movies = response
-  //     console.log(response)
-  //   }))
-  // }
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -31,12 +27,30 @@ export class MovieDetailsComponent implements OnInit {
       this.getMovieById(this.id);
     });
   }
-  
+
   getMovieById(id: string) {
     this.moviesService.getMovieById(id).subscribe(response => {
-      this.movies = response;
+      this.movie = response;
+      this.genres = response.genres;
+      this.spoken_languages = response.spoken_languages
+      this.vote_average = response.vote_average.toFixed(2)
+      console.log("idiomas: ", this.spoken_languages[0]);
       console.log(response);
     });
   }
-  
+
+  formatGenres(genres: any[]): string {
+    return genres.map(genero => genero.name).join(' | ');
+  }
+
+  formatLanguages(spoken_languages: any[]) {
+    return spoken_languages.map(languages => languages.english_name).join(' | ')
+  }
+
+  getYear(release_date: any){
+    const date = new Date(release_date);
+    return date.getFullYear();
+  }
+
+
 }

@@ -1,1 +1,24 @@
-<p>movie-details works!</p>
+<div class="container hero">
+  <div class="d-flex">
+    <div class="capa">
+      <img [src]="imageUrl + movie.backdrop_path" alt="{{ movie.title }}" class="card-img-top">
+    </div>
+    <div class="content px-5">
+      <h3 class="title">{{ movie.title }} - {{getYear(movie.release_date)}}</h3>
+      <p class="genrer">
+        {{ formatGenres(genres) }}
+      </p>
+      <p class="overview">
+        {{ movie.overview}}
+      </p>
+      <p class="languages">
+        Idiomas disponíveis: {{ formatLanguages(spoken_languages) }}
+      </p>
+
+      <span class="avarage">
+        {{ movie.vote_average | number: '1.2-2' }}
+      </span>
+    </div>
+  </div>
+</div>
+

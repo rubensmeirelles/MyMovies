@@ -27,5 +27,15 @@ body{
   padding-bottom: 20px;
 }
 
+.genrer, .languages{
+  font-size: 1.2em;
+  color: #2beed4;
+}
+
+.overview{
+  font-size: 1.5em;
+  color: #f9f9f9;
+}
+
 
 
