@@ -10,6 +10,7 @@ export class MoviesService {
   constructor(private api: HttpClient){}
 
   apiKey = '?api_key=6888da0641053ade917886ca8a7fdd72'
+  language = '?language=pt-BR'
 
   getTopRated(){
     return this.api.get<any>(`${environment.urlApi}/top_rated${this.apiKey}`)
@@ -25,6 +26,10 @@ export class MoviesService {
 
   getMovieById(movieId: string) {
     return this.api.get<any>(`${environment.urlApi}/${movieId}${this.apiKey}`);
+  }
+
+  getMovieVideo(movieId: string) {
+    return this.api.get<any>(`${environment.urlApi}/${movieId}/videos${this.apiKey}`);
   }
 
 }

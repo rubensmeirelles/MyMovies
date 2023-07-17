@@ -10,3 +10,54 @@
 .capa img{
   object-fit: cover;
 }
+
+.avarage{
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #f9f9f9;
+  background: radial-gradient(ellipse farthest-corner at right center, #2beed4 51%, #084044 100%);
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+.avaliable{
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #f9f9f9;
+}
+
+.btn-trailer{
+  background-color: rgb(215, 66, 66);
+  color: #f9f9f9;
+}
+
+.btn-trailer span{
+  font-size: 1.1em;
+}
+
+.btn-trailer img{
+  color: #f9f9f9;
+}
+
+.modal-dialog {
+
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-body {
+  min-height: 75vh;
+  padding: 0;
+  position: relative;
+}
+
+.modal-body iframe {
+  width: 100%;
+  height: 100%;
+}
+

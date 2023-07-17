@@ -1,4 +1,5 @@
 <div class="container hero">
+  <a routerLink="/">Voltar</a>
   <div class="d-flex">
     <div class="capa">
       <img [src]="imageUrl + movie.backdrop_path" alt="{{ movie.title }}" class="card-img-top">
@@ -12,13 +13,40 @@
         {{ movie.overview}}
       </p>
       <p class="languages">
-        Idiomas disponíveis: {{ formatLanguages(spoken_languages) }}
+        Idioma: {{ formatLanguages(spoken_languages) }}
       </p>
 
-      <span class="avarage">
-        {{ movie.vote_average | number: '1.2-2' }}
-      </span>
+      <div class="d-flex align-items-center">
+        <div class="avarage">
+          <span class="">{{ movie.vote_average | number: '1.2-2' }}</span>
+        </div>
+        <span class="mx-3 avaliable">Avaliação Média</span>
+      </div>
+      <button type="button" class="btn btn-trailer mt-3" data-bs-toggle="modal" data-bs-target="#myModal">
+        <img src="../../../assets/images/play-button.png" class="mx-2">
+        <span>Trailer</span>
+      </button>
+      <!-- <div class="moviePlay">
+        <a href="https://www.themoviedb.org/video/play?key={{getVideo}}" target="#myModal">Trailler</a>
+      </div> -->
     </div>
   </div>
-</div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h1 class="modal-title fs-5" id="myModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div> -->
+          <div class="modal-body">
+            <iframe
+              [src]="getSafeVideoUrl()"
+              frameborder="0"
+              height="500px"
+            >
+          </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
