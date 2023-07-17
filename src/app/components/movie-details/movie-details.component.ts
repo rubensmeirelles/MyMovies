@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
   videoUrl = 'https://www.themoviedb.org/video/play?key='
+  public trailerUrl: any;
 
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer){
 
@@ -49,16 +50,18 @@ export class MovieDetailsComponent implements OnInit {
     this.moviesService.getMovieVideo(id).subscribe(response => {
       console.log("videos: ", response)
       response.results.forEach((element: any) => {
-        if(element.type == "Trailer"){
-          this.getVideo = element.key
-
+        if(element.site == "YouTube" && element.official == true){
+          this.trailerUrl = `https://www.youtube.com/embed/${element.key}`;
+          this.movieVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerUrl);
+          console.log("tRAILER: ",this.trailerUrl)
         }
       });
     })
   }
 
   getSafeVideoUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl + this.getVideo);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.getVideo}`);
+    //return this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl + this.getVideo);
   }
 
 
