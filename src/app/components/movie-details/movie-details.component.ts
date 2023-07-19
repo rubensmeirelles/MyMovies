@@ -14,7 +14,7 @@ export class MovieDetailsComponent implements OnInit {
   public id: any;
   movie: any = [];
   movieVideo: any;
-  moreVideos: any[] = [];
+  moreVideos: SafeResourceUrl[] = [];
   videos: any;
   key: any;
   genres: any = [] = [];
@@ -23,7 +23,8 @@ export class MovieDetailsComponent implements OnInit {
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
   videoUrl = 'https://www.themoviedb.org/video/play?key=';
-  appendVideo = 'https://api.themoviedb.org/3/movie/297762?api_key=###&append_to_response=videos'
+  carregando: boolean = false;
+
   public trailerUrl: any;
 
   apiKey = '6888da0641053ade917886ca8a7fdd72'
@@ -65,15 +66,10 @@ export class MovieDetailsComponent implements OnInit {
 
   getMoreVideos(id: string) {
     this.moviesService.getMovieVideo(id).subscribe(response => {
-      console.log("videos: ", response);
       response.results.forEach((element: any) => {
         if (element.site == "YouTube") {
-          const videoUrl = `https://www.youtube.com/watch?v=${element.key}`;
-          const videoThumbnail = `https://img.youtube.com/vi/${element.key}/hqdefault.jpg`;
-          const sanitizedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
-
-          this.moreVideos.push({ url: sanitizedUrl, thumbnail: videoThumbnail });
-          console.log("mais videos: ", videoUrl);
+          const videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${element.key}`);
+          this.moreVideos.push(videoUrl);
         }
       });
     });

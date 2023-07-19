@@ -50,6 +50,17 @@
   color: #2beed4;
 }
 
+.videos{
+ max-width: 380px;
+ margin: 2px 4px;
+}
+
+.videos iframe{
+  border: 1px solid #2beed4;
+  width: 100%;
+  margin-top: 5px;
+}
+
 /* .modal-dialog {
 
 } */
