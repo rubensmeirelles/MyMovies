@@ -33,4 +33,7 @@ export class MoviesService {
     return this.api.get<any>(`${environment.urlApi}/${movieId}/videos${this.apiKey}`);
   }
 
+  getMovieCredits(movieId: string) {
+    return this.api.get<any>(`${environment.urlApi}/${movieId}/credits${this.apiKey}`);
+  }
 }

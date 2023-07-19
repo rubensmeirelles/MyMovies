@@ -39,7 +39,11 @@
           <mat-icon class="icon">people</mat-icon>
           <span>Elenco</span>
         </ng-template>
-        Content 1
+        <div *ngFor="let credit of credits">
+          <div class="profile">
+            <img [src]="imageUrl + credit.profile_path" alt="{{ credit.name }}" class="card-img-top">
+          </div>
+        </div>
       </mat-tab>
 
       <mat-tab>
@@ -60,8 +64,9 @@
           <mat-icon class="icon">people</mat-icon>
           <span>Elenco</span>
         </ng-template>
-
-        Content 3
+        <div class="credits" *ngFor="let credit of credits">
+          <p>{{credit.name}}</p>
+        </div>
       </mat-tab>
     </mat-tab-group>
 

@@ -24,6 +24,7 @@ export class MovieDetailsComponent implements OnInit {
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
   videoUrl = 'https://www.themoviedb.org/video/play?key=';
   carregando: boolean = false;
+  credits: any;
 
   public trailerUrl: any;
 
@@ -39,6 +40,7 @@ export class MovieDetailsComponent implements OnInit {
       this.getMovieById(this.id);
       this.getVideo(this.id);
       this.getMoreVideos(this.id);
+      this.getMovieCredits(this.id)
     });
   }
 
@@ -48,7 +50,6 @@ export class MovieDetailsComponent implements OnInit {
       this.genres = response.genres;
       this.spoken_languages = response.spoken_languages
       this.vote_average = response.vote_average.toFixed(2)
-      console.log("idiomas: ", this.spoken_languages[0]);
       console.log(response);
     });
   }
@@ -73,6 +74,18 @@ export class MovieDetailsComponent implements OnInit {
         }
       });
     });
+  }
+
+  getMovieCredits(id: string) {
+    this.moviesService.getMovieCredits(id).subscribe(response => {
+      console.log("credits: ", response.cast)
+      response.cast.forEach((element: any) => {
+        if(element.known_for_department == "Acting"){
+          this.credits = response.cast;
+        }
+        
+      });
+    })
   }
 
   getSafeVideoUrl(): SafeResourceUrl {
