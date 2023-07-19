@@ -41,6 +41,15 @@
   color: #f9f9f9;
 }
 
+.info span {
+  color: #f9f9f9;
+  margin-left: 5px;
+}
+
+.icon{
+  color: #2beed4;
+}
+
 /* .modal-dialog {
 
 } */

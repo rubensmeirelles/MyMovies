@@ -31,14 +31,47 @@
       </div> -->
     </div>
   </div>
+  <h3 class="sub-title">Mais informações</h3>
+  <div class="info">
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="icon">people</mat-icon>
+          <span>Elenco</span>
+        </ng-template>
+        Content 1
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="icon">movie</mat-icon>
+          <span>Mais vídeos</span>
+        </ng-template>
+        <div *ngFor="let video of moreVideos">
+          <a [href]="video.url" target="_blank">
+            <img [src]="video.thumbnail" alt="Video Thumbnail">
+          </a>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="icon">people</mat-icon>
+          <span>Elenco</span>
+        </ng-template>
+
+        Content 3
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+
+
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
-          <!-- <div class="modal-header">
-            <h1 class="modal-title fs-5" id="myModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div> -->
           <div class="modal-body">
             <iframe [src]="movieVideo" width="100%" height="515" frameborder="0" allowfullscreen></iframe>
           </div>

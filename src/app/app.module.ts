@@ -11,9 +11,12 @@ import { NavigationComponent } from './components/shared/navigation/navigation.c
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localePt);
 
@@ -32,7 +35,10 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

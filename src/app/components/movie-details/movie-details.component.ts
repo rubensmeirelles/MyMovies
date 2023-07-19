@@ -14,14 +14,19 @@ export class MovieDetailsComponent implements OnInit {
   public id: any;
   movie: any = [];
   movieVideo: any;
+  moreVideos: any[] = [];
+  videos: any;
   key: any;
   genres: any = [] = [];
   vote_average: any;
   spoken_languages: any = [] = [];
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
-  videoUrl = 'https://www.themoviedb.org/video/play?key='
+  videoUrl = 'https://www.themoviedb.org/video/play?key=';
+  appendVideo = 'https://api.themoviedb.org/3/movie/297762?api_key=###&append_to_response=videos'
   public trailerUrl: any;
+
+  apiKey = '6888da0641053ade917886ca8a7fdd72'
 
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer){
 
@@ -31,7 +36,8 @@ export class MovieDetailsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
       this.getMovieById(this.id);
-      this.getVideo(this.id)
+      this.getVideo(this.id);
+      this.getMoreVideos(this.id);
     });
   }
 
@@ -48,15 +54,29 @@ export class MovieDetailsComponent implements OnInit {
 
   getVideo(id: string){
     this.moviesService.getMovieVideo(id).subscribe(response => {
-      console.log("videos: ", response)
       response.results.forEach((element: any) => {
-        if(element.site == "YouTube" && element.official == true){
+        if(element.type == "Trailer"){
           this.trailerUrl = `https://www.youtube.com/embed/${element.key}`;
           this.movieVideo = this.sanitizer.bypassSecurityTrustResourceUrl(this.trailerUrl);
-          console.log("tRAILER: ",this.trailerUrl)
         }
       });
     })
+  }
+
+  getMoreVideos(id: string) {
+    this.moviesService.getMovieVideo(id).subscribe(response => {
+      console.log("videos: ", response);
+      response.results.forEach((element: any) => {
+        if (element.site == "YouTube") {
+          const videoUrl = `https://www.youtube.com/watch?v=${element.key}`;
+          const videoThumbnail = `https://img.youtube.com/vi/${element.key}/hqdefault.jpg`;
+          const sanitizedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
+
+          this.moreVideos.push({ url: sanitizedUrl, thumbnail: videoThumbnail });
+          console.log("mais videos: ", videoUrl);
+        }
+      });
+    });
   }
 
   getSafeVideoUrl(): SafeResourceUrl {
