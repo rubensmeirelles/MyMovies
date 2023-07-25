@@ -22,9 +22,11 @@ export class MovieDetailsComponent implements OnInit {
   spoken_languages: any = [] = [];
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
+  defaultImageUrl: string = '../../../assets/images/sem-foto.png';
   videoUrl = 'https://www.themoviedb.org/video/play?key=';
   carregando: boolean = false;
   credits: any;
+  creditsCrew: any;
 
   public trailerUrl: any;
 
@@ -73,17 +75,16 @@ export class MovieDetailsComponent implements OnInit {
           this.moreVideos.push(videoUrl);
         }
       });
+      this.moreVideos = this.moreVideos.slice(0, 4);
     });
   }
 
   getMovieCredits(id: string) {
     this.moviesService.getMovieCredits(id).subscribe(response => {
-      console.log("credits: ", response.cast)
+      console.log("credits: ", response)
       response.cast.forEach((element: any) => {
-        if(element.known_for_department == "Acting"){
-          this.credits = response.cast;
-        }
-        
+        this.credits = response.cast.slice(0, 20)
+        this.creditsCrew = response.crew
       });
     })
   }
@@ -91,6 +92,10 @@ export class MovieDetailsComponent implements OnInit {
   getSafeVideoUrl(): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.getVideo}`);
     //return this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl + this.getVideo);
+  }
+
+  handleImageError(event: any) {
+    event.target.src = this.defaultImageUrl;
   }
 
 
