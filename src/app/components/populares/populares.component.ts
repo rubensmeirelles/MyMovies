@@ -12,7 +12,6 @@ export class PopularesComponent implements OnInit {
   votes: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
 
-
   constructor( private moviesService: MoviesService) { }
 
   ngOnInit() {
@@ -24,5 +23,4 @@ export class PopularesComponent implements OnInit {
       this.movies = response;
     }))
   }
-
 }

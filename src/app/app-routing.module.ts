@@ -5,6 +5,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { PopularesComponent } from './components/populares/populares.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { SearchMovieComponent } from './components/searchMovie/searchMovie.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'movies', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'populares', component: PopularesComponent },
   { path: 'coming', component: UpcomingComponent },
+  { path: 'search', component: SearchMovieComponent },
   { path: '**', component: MoviesComponent },
 ]
 

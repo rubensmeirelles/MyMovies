@@ -13,7 +13,6 @@ export class MoviesComponent implements OnInit {
   movies: any = [];
   imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
 
-
   constructor( private moviesService: MoviesService) { }
 
   ngOnInit() {
@@ -23,8 +22,6 @@ export class MoviesComponent implements OnInit {
   getTopRated(){
     this.moviesService.getTopRated().subscribe((response => {
       this.movies = response;
-      console.log("Filmes: ",this.movies.results)
     }))
   }
-
 }

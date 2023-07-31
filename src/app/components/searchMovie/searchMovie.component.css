@@ -1,3 +1,19 @@
+.search{
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: 1px solid #f4f4f4;
+  color: #f4f4f4;
+  font-size: 1.5rem;
+}
+
+::placeholder{
+  color: #f4f4f4;
+  font-size: 1.5rem;
+  line-height: 40px;
+}
+
 .card{
   margin: 15px;
   background-color: black;
@@ -28,4 +44,3 @@ span{
   position: absolute;
   margin-top: -75px;
 }
-

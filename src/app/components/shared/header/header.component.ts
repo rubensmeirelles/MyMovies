@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms'
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-header',
@@ -11,5 +13,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

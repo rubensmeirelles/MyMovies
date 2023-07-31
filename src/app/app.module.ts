@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SearchMovieComponent } from './components/searchMovie/searchMovie.component';
 
 registerLocaleData(localePt);
 
@@ -30,7 +32,8 @@ registerLocaleData(localePt);
     NavigationComponent,
     MovieCardComponent,
     UpcomingComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SearchMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ registerLocaleData(localePt);
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
