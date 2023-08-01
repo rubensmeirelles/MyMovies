@@ -13,6 +13,7 @@ import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -42,7 +43,8 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

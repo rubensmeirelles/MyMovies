@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -9,23 +10,33 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class SearchMovieComponent implements OnInit {
 
-  constructor(private moviesService: MoviesService) { }
+  imageUrl = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
+  DialogElementsExampleDialog: any;
+  searchResult: any;
+  searchForm: FormGroup<{ movieName: FormControl<string | null>; }>;
+
+  constructor(private moviesService: MoviesService, private formBuilder: FormBuilder, public dialog: MatDialog) {
+    this.searchForm = this.formBuilder.group({
+      movieName: ['', Validators.required], // Exemplo de campo obrigatório
+      // Outros campos do formulário
+    });
+   }
 
   ngOnInit() {
   }
 
-  searchResult: any;
-
-  searchForm = new FormGroup({
-    'movieName': new FormControl(null)
-  })
-
   submitForm(){
-    console.log("movie: ",this.searchForm.value)
+    console.log(this.searchForm.value)
+    if (this.searchForm.invalid) {
+      this.openDialog();
+      return;
+    }
     this.moviesService.searchMovies(this.searchForm.value).subscribe((response => {
       this.searchResult = response.results
-      console.log("movie: ", this.searchResult)
     }))
   }
 
+  openDialog() {
+    this.dialog.open(this.DialogElementsExampleDialog);
+  }
 }
