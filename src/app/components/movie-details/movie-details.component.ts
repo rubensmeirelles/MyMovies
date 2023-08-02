@@ -27,6 +27,7 @@ export class MovieDetailsComponent implements OnInit {
   carregando: boolean = false;
   credits: any;
   creditsCrew: any;
+  department: any;
 
   public trailerUrl: any;
 
@@ -79,12 +80,15 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
+  public departmentToShow: string | undefined;
+
   getMovieCredits(id: string) {
     this.moviesService.getMovieCredits(id).subscribe(response => {
       console.log("credits: ", response)
       response.cast.forEach((element: any) => {
         this.credits = response.cast.slice(0, 20)
-        this.creditsCrew = response.crew
+        this.creditsCrew = response.crew;
+        this.departmentToShow = this.creditsCrew?.department;
       });
     })
   }
